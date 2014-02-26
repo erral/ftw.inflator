@@ -33,6 +33,16 @@
         configuration="content_creation.cfg"
         />
 
+    <configure package="Products.CMFPlone.exportimport">
+      <genericsetup:importStep
+          name="content"
+          title="Content"
+          description="Import the site's structure and content."
+          handler="Products.CMFCore.exportimport.content.importSiteStructure">
+        <depends name="typeinfo"/>
+        <depends name="ftw.inflator.content_creation"/>
+      </genericsetup:importStep>
+    </configure>
 
     <!-- transmogrifier sections -->
     <utility
